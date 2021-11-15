@@ -6,6 +6,12 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.list = @list
-    flash[:notice] = @booking
   end
+
+  private
+
+  def booking_params
+    params.require(:booking).permit(:reviews, :actor_id)
+  end
+
 end
