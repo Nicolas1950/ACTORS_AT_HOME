@@ -12,34 +12,33 @@ before_action :find, only:[:show, :edit, :update, :destroy]
   end
 
   def create
-    @task = Task.new(task_params)
-    @task.save
-    redirect_to task_path(@task)
+    @actor = Actor.new(actor_params)
+    @actor.save
+    redirect_to actor_path(@actor)
   end
 
   def edit
-
   end
 
   def update
-
-    @task.update(task_params)
-    @task.save
-    redirect_to task_path(@task)
+    @actor.update(actor_params)
+    @actor.save
+    redirect_to actor_path(@actor)
   end
+
   def destroy
-
-    @task.delete
-    redirect_to tasks_path
-
+    @actor.delete
+    redirect_to actors_path
   end
+
   private
 
   def find
-    @task = Task.find(params[:id])
+    @actor = Actor.find(params[:id])
   end
-  def task_params
-    params.require(:task).permit(:title, :details, :completed)
+
+  def actor_params
+    params.require(:actor).permit(:name, :price, :field, :description)
   end
 end
 end
