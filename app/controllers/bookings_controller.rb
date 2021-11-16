@@ -5,7 +5,9 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    @booking.list = @list
+    @booking.user = current_user
+    @booking.save
+    redirect_to actor_path(@actor)
   end
 
   private
