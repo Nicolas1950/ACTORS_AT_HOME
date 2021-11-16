@@ -1,11 +1,15 @@
 <h1>ACTORS AT HOME</h1>
-
-<div class="card" style="width: 18rem;">
-  <%# <img src="..." class="card-img-top" alt="..."> %>
-  <div class="card-body">
-    <h5 class="card-title">Di caprio</h5>
-    <p class="card-text">Field</p>
-    <p class="card-text">Price</p>
+<% @actors.each do |actor| %>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title"><%= actor.name %></h5>
+      <p class="card-text"><%= actor.price %></p>
+      <p class="card-text"><%= actor.field %></p>
+      <%# <p class="card-text"><%= cl_image_tag actor.photo.key, height: 300, width: 400, crop: :fill %></p>
+    %>
+    <p class="card-text"><%= actor.description %></p>
     <a href="#" class="btn btn-primary">Book the actor</a>
   </div>
 </div>
+<% end %>
+<%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %>
