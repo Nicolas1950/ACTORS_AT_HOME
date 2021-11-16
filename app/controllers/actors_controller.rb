@@ -1,5 +1,5 @@
 class ActorsController < ApplicationController
-before_action :find, only:[:show, :edit, :update, :destroy]
+  before_action :find, only:[:show, :edit, :update, :destroy]
   def index
     @actors = Actor.all
   end
@@ -40,5 +40,4 @@ before_action :find, only:[:show, :edit, :update, :destroy]
   def actor_params
     params.require(:actor).permit(:name, :price, :field, :description)
   end
-end
 end
