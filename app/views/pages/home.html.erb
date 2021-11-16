@@ -1,50 +1,57 @@
 <div class="p-3 mb-2 bg-info ">
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="#">
-    <img src="https://cdn-icons-png.flaticon.com/512/1733/1733692.png" />
-</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <%# <li class="nav-item active">
+  <div class="navbar  force navbar-expand-sm navbar-light navbar-lewagon">
+    <a class="navbar-brand" href="#">
+      <img src="https://cdn-icons-png.flaticon.com/512/1733/1733692.png" />
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <%# <li class="nav-item active">
         <a class="nav-link" href="#">Home</a>
       </li> %>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Messages</a>
-      </li>
-      <li class="nav-item dropdown">
-        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://jooinn.com/images/empty-face-1.jpg" />
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-        </div>
-      </li>
-    </ul>
-
+        <li class="nav-item">
+          <a class="nav-link" href="#">Messages</a>
+        </li>
+        <li class="nav-item dropdown">
+          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://jooinn.com/images/empty-face-1.jpg" />
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Sig up</a>
+            <a class="dropdown-item" href="#">Log in</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i></a>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-
-</div>
-<% if notice %>
-  <div class="alert alert-info alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= notice %>
+  <% if notice %>
+    <div class="alert alert-info alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= notice %>
+    </div>
+  <% end %>
+  <% if alert %>
+    <div class="alert alert-warning alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <%= alert %>
+    </div>
+  <% end %>
+  <div class="text-center mt-5">
+    <h1>Actors At Home</h1>
   </div>
-<% end %>
-<% if alert %>
-  <div class="alert alert-warning alert-dismissible" role="alert">
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= alert %>
+  <h2 class="text-center"><strong>What you can find on our websit:</strong></h2>
+  <div class="row"></div>
+  <div>
+    <img src="https://img-4.linternaute.com/BMvvldk0ih8lCkc4RAZ8Pc5Lv7I=/1500x/smart/b3b8cc1315c64a4ba25133b777e55e2f/ccmcms-linternaute/10515834.jpg" width=1350px  heigth=350pxclass="img-thumbnail" alt="...">
   </div>
-<% end %>
-<div class="text-center mt-5"><h1>Actors At Home</h1></div>
-<h2 class="text-center"><strong>What you can find on our websit:</strong></h2>
-<div>
-<img src="https://img-4.linternaute.com/BMvvldk0ih8lCkc4RAZ8Pc5Lv7I=/1500x/smart/b3b8cc1315c64a4ba25133b777e55e2f/ccmcms-linternaute/10515834.jpg" class="img-thumbnail" alt="...">
-
 </div>
-
 </div>
+<form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+  <div class="search-form-control form-group">
+    <input class="form-control string required" type="text" name="search[query]" id="search_query" />
+    <button name="button" type="submit" class="btn btn-flat">
+      <i class="fas fa-search"></i> Search
+    </button>
+  </div>
+</form>
