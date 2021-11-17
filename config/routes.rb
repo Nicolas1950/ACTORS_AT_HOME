@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'reviews/index'
+  get 'reviews/new'
+  get 'reviews/create'
+  get 'reviews/destroy'
   devise_for :users
   root to: 'pages#home'
   resources :actors do
