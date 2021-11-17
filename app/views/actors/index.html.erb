@@ -61,6 +61,7 @@
             <p class="card-text"><%= actor.field %></p>
             <p class="card-text"><%= actor.description %></p>
           </div>
+          <%= link_to 'add', new_actor_booking_path, class: 'btn btn-primary'%>
         </div>
       <% end %>
     </div>
