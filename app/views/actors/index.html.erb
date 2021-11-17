@@ -60,7 +60,7 @@
             <p class="card-text"><%= actor.price %></p>
             <p class="card-text"><%= actor.field %></p>
             <p class="card-text"><%= actor.description %></p>
-            <%= link_to 'Show the actor', actor_path(actor), class: 'btn btn-primary' %>
+            <%= link_to "Show actor's informations", actor_path(actor), class: 'btn btn-primary' %>
           </div>
         </div>
       <% end %>
@@ -69,5 +69,3 @@
   <% if policy(Actor).create? %>
     <%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %>
   <% end %>
-
-  <%# <%= link_to 'Book an actor', new_actor_booking_path %> %>
