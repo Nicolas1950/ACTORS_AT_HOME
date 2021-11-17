@@ -13,6 +13,7 @@ class ActorsController < ApplicationController
 
   def create
     @actor = Actor.new(actor_params)
+    @actor.user = current_user
     @actor.save
     redirect_to actor_path(@actor)
   end
@@ -38,6 +39,6 @@ class ActorsController < ApplicationController
   end
 
   def actor_params
-    params.require(:actor).permit(:name, :price, :field, :description)
+    params.require(:actor).permit(:name, :price, :field, :description, :photo)
   end
 end
