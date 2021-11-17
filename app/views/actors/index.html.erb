@@ -60,11 +60,17 @@
             <p class="card-text"><%= actor.price %></p>
             <p class="card-text"><%= actor.field %></p>
             <p class="card-text"><%= actor.description %></p>
+            <%= link_to 'See infos', actor_path(actor), class: 'btn btn-primary' %>
           </div>
         </div>
       <% end %>
     </div>
   </div>
   <% if policy(Actor).create? %>
+<<<<<<< HEAD
     <p class='text-center'><%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %></p
       <% end %>
+=======
+    <%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %>
+  <% end %>
+>>>>>>> a6441823a393ea3235d4459ee00308fae582e148

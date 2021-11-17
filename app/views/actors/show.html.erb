@@ -1,20 +1,16 @@
-<div class="container_show">
-  <div><% if @actor.photo.attached? %>
-      <%= cl_image_tag @actor.photo.key %>
-    <% end %></div>
-  <ul>
-    <div class="show_information">
-      <li class='actor_name'><%= @actor.name %></li>
-      <li class='actor_price'><%= @actor.price %></li>
-      <li class='actor_field'><%= @actor.field %></li>
-      <li class='actor_description'><%= @actor.description %></li>
-      <li class='class_adress'><%= @actor.address %></li>
-      <%# <%= link_to 'Book the Actor', new_actor_booking_path, class: "btn btn-primary" %>
-    </div>
-  </ul>
-</div>
-<div class="btn_show">
-  <% if policy(@actor).edit? %>
-    <%= link_to 'Edit infos', edit_actor_path, class: 'btn btn-secondary' %>
-  <% end %>
-</div>
+<%= @actor.name %>
+<%= @actor.price %>
+<%= @actor.field %>
+<%= @actor.description %>
+<%= @actor.address %>
+<% if @actor.photo.attached? %>
+  <%= cl_image_tag @actor.photo.key %>
+<% end %>
+<% if policy(@actor).edit? %>
+  <%= link_to 'Edit infos', edit_actor_path, class: 'btn btn-secondary' %>
+<% end %>
+<%= link_to 'Book the Actor', new_actor_booking_path(@actor), class: "btn btn-primary" %>
+<h2>Bookings of the actor</h2>
+<% if @actor.bookings %>
+  <%= @actor.bookings %>
+<% end %>
