@@ -5,7 +5,7 @@
         <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
           <h2>When do you want to rent your actor ?</h2>
 
-          <%= simple_form_for [@actor, @booking], method: "get" do |f| %>
+          <%= simple_form_for [@actor, @booking] do |f| %>
             <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
             <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
             <%= f.button :submit, "Confirm my dates", class: "btn btn-primary" %>

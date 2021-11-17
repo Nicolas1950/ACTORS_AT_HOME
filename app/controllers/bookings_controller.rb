@@ -11,11 +11,11 @@ class BookingsController < ApplicationController
     @actor = Actor.find(params[:actor_id])
     @booking.actor = @actor
     @booking.save
-    redirect_to actor_path
+    redirect_to actors_path
     authorize @booking
   end
 
-  def delete
+  def destroy
     @booking.destroy
     authorize @booking
   end
