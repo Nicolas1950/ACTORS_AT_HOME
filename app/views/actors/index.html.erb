@@ -1,5 +1,5 @@
 <h1>ACTORS AT HOME</h1>
-<% @actors.each do |actor| %>
+<%= @actors.each do |actor| %>
   <div class="card" style="width: 18rem;">
     <div class="card-body" style="background-image: url('<%= cl_image_path actor.photo.key, height: 300, crop: :fill %>'); background-size: cover">">
       <h5 class="card-title"><%= actor.name %></h5>

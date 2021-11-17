@@ -7,7 +7,11 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.save
-    redirect_to actor_path(@actor)
+    redirect_to actor_path
+  end
+
+  def delete
+    @booking.destroy
   end
 
   private
