@@ -2,7 +2,6 @@
 <%= @actor.price %>
 <%= @actor.field %>
 <%= @actor.description %>
-<%= cl_image_tag @actor.photo.key %>
 <% if @actor.photo.attached? %>
   <%= cl_image_tag @actor.photo.key %>
 <% end %>
