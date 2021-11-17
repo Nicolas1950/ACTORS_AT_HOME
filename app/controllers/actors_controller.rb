@@ -14,8 +14,11 @@ class ActorsController < ApplicationController
   def create
     @actor = Actor.new(actor_params)
     @actor.user = current_user
-    @actor.save
-    redirect_to actor_path(@actor)
+    if @actor.save
+      redirect_to actor_path(@actor)
+    else
+      render :new
+    end
   end
 
   def edit
