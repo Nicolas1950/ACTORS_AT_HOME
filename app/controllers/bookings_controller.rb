@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   def new
     @booking = Booking.new
     @actor = Actor.find(params[:actor_id])
-
+    authorize @booking
   end
 
   def create
@@ -12,10 +12,12 @@ class BookingsController < ApplicationController
     @booking.actor = @actor
     @booking.save
     redirect_to actor_path
+    authorize @booking
   end
 
   def delete
     @booking.destroy
+    authorize @booking
   end
 
   private
