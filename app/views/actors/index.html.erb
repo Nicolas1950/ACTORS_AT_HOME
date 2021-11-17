@@ -1,6 +1,6 @@
 <div class="p-3 mb-2 bg-info ">
   <div class="navbar force navbar-expand-sm navbar-light navbar-lewagon">
-    <a class="navbar-brand" href="#">
+    <a class="navbar-brand d-flex" href="#">
       <img src="https://cdn-icons-png.flaticon.com/512/1733/1733692.png" />
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -61,5 +61,5 @@
     </div>
   </div>
   <% if policy(Actor).create? %>
-    <%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %>
-  <% end %>
+    <p class='text-center'><%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %></p
+      <% end %>
