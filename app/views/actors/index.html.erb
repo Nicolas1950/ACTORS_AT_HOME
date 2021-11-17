@@ -1,12 +1,19 @@
-<h1>ACTORS AT HOME</h1>
-<% @actors.each do |actor| %>
-  <div class="card" style="width: 18rem;">
-    <div class="card-body" style="background-image: url('<%= cl_image_path actor.photo.key, height: 300, crop: :fill %>'); background-size: cover">">
-      <h5 class="card-title"><%= actor.name %></h5>
-      <p class="card-text"><%= actor.price %></p>
-      <p class="card-text"><%= actor.field %></p>
-      <p class="card-text"><%= actor.description %></p>
-    </div>
+<div class="container">
+  <h1 class="text-center">ACTORS AT HOME</h1>
+  <% @actors.each do |actor| %>
+    <div class="card" style="width: 18rem;">
+      <% if actor.photo.attached? %>
+        <div class="card-body" style="background-image: url('<%= cl_image_path actor.photo.key, height: 300, crop: :fill %>'); background-size: cover">
+        <% else %>
+          <div class="card-body" style="background-image: url('https://image.shutterstock.com/image-vector/male-silhouette-profile-picture-question-260nw-151266383.jpg'); background-size: cover">
+          <% end %>
+          <h5 class="card-title"><%= actor.name %></h5>
+          <p class="card-text"><%= actor.price %></p>
+          <p class="card-text"><%= actor.field %></p>
+          <p class="card-text"><%= actor.description %></p>
+        </div>
+      </div>
+    <% end %>
+    <%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %>
   </div>
-<% end %>
-<%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %>
+</div>
