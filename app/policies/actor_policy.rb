@@ -5,7 +5,11 @@ class ActorPolicy < ApplicationPolicy
     end
   end
 
-  def new
+  def show?
+    return true
+  end
+
+  def new?
     return true
   end
 

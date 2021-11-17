@@ -1,21 +1,27 @@
 class ActorsController < ApplicationController
   before_action :find, only:[:show, :edit, :update, :destroy]
   def index
-    @actors = Actor.all
+    @actors = policy_scope(Actor)
   end
 
   def new
     @actor = Actor.new
+    authorize @actor
   end
 
   def show
+
   end
 
   def create
     @actor = Actor.new(actor_params)
     @actor.user = current_user
-    @actor.save
-    redirect_to actor_path(@actor)
+    if @actor.save
+      redirect_to actor_path(@actor)
+    else
+      render :new
+    end
+
     authorize @actor
   end
 
@@ -26,19 +32,20 @@ class ActorsController < ApplicationController
     @actor.update(actor_params)
     @actor.save
     redirect_to actor_path(@actor)
-    authorize @actor
+
   end
 
   def destroy
     @actor.delete
     redirect_to actors_path
-    authorize @actor
+
   end
 
   private
 
   def find
     @actor = Actor.find(params[:id])
+    authorize @actor
   end
 
   def actor_params
