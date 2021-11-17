@@ -2,6 +2,12 @@ class ActorsController < ApplicationController
   before_action :find, only:[:show, :edit, :update, :destroy]
   def index
     @actors = policy_scope(Actor)
+    @markers = @actors.geocoded.map do |actor|
+      {
+        lat: actor.latitude,
+        lng: actor.longitude
+      }
+    end
   end
 
   def new
@@ -30,13 +36,11 @@ class ActorsController < ApplicationController
     @actor.update(actor_params)
     @actor.save
     redirect_to actor_path(@actor)
-
   end
 
   def destroy
     @actor.delete
     redirect_to actors_path
-
   end
 
   private
