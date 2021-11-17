@@ -9,4 +9,6 @@
     </div>
   </div>
 <% end %>
-<%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %>
+<% if policy(Actor).create? %>
+  <%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %>
+<% end %>

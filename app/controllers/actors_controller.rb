@@ -16,6 +16,7 @@ class ActorsController < ApplicationController
     @actor.user = current_user
     @actor.save
     redirect_to actor_path(@actor)
+    authorize @actor
   end
 
   def edit
@@ -25,11 +26,13 @@ class ActorsController < ApplicationController
     @actor.update(actor_params)
     @actor.save
     redirect_to actor_path(@actor)
+    authorize @actor
   end
 
   def destroy
     @actor.delete
     redirect_to actors_path
+    authorize @actor
   end
 
   private
