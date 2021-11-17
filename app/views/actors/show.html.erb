@@ -3,6 +3,9 @@
 <%= @actor.field %>
 <%= @actor.description %>
 <%= cl_image_tag @actor.photo.key %>
+<% if @actor.photo.attached? %>
+  <%= cl_image_tag @actor.photo.key %>
+<% end %>
 <% if policy(@actor).edit? %>
   <%= link_to 'Edit infos', edit_actor_path, class: 'btn btn-secondary' %>
 <% end %>

@@ -10,7 +10,6 @@ class ActorsController < ApplicationController
   end
 
   def show
-
   end
 
   def create
@@ -21,7 +20,6 @@ class ActorsController < ApplicationController
     else
       render :new
     end
-
     authorize @actor
   end
 
