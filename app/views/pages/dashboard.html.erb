@@ -1,0 +1,21 @@
+
+
+
+  <% @bookings_current_user.each do |booking| %>
+
+    <div class="card-booking">
+
+    <% if booking.actor.photo.attached? %>
+      <%= cl_image_tag booking.actor.photo.key, height: 300, width: 400, crop: :fill %>
+    <% else %>
+     <%= "No picture attached guys!!!!!!" %>
+    <% end %>
+
+    <ul>
+    <li><%= booking.actor.name %></li>
+    <li><%= booking.start_date %>-<%= booking.end_date %></li>
+    </ul>
+
+    </div>
+
+  <% end %>
