@@ -24,20 +24,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:)
-
+    params.require(:review).permit(:comment, :rating)
+  end
 end
-
-
-
-  @booking = Booking.new(booking_params)
-  @booking.user = current_user
-  @booking.save
-  redirect_to actor_path(@actor)
-  end
-
-  private
-
-  def booking_params
-    params.require(:booking).permit(:reviews, :actor_id)
-  end

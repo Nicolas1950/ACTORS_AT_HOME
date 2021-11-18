@@ -3,7 +3,11 @@
 
   <% @bookings_current_user.each do |booking| %>
 
+<<<<<<< HEAD
     <div class="card-booking">
+=======
+    <div>
+>>>>>>> master
 
     <% if booking.actor.photo.attached? %>
       <%= cl_image_tag booking.actor.photo.key, height: 300, width: 400, crop: :fill %>

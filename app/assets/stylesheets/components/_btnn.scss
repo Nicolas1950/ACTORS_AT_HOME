@@ -1,0 +1,36 @@
+#buton_index {
+display: inline-block;
+background-color: #c1cdd3;
+border: 4px double #cccccc;
+color: #eeeeee;
+text-align: center;
+align-items: center;
+font-size: 28px;
+cursor: pointer;
+height: 45px;
+text-decoration: none;
+font-family: 'Lora', serif;;
+
+}
+#buton_index:hover {
+
+  background: rgb(164, 165, 164);
+  opacity: 0,1;
+}
+
+#add_actor_btn {
+display: inline-block;
+background-color: #d4d6d6;
+border: 4px double #cccccc;
+color: #eeeeee;
+text-align: center;
+align-items: center;
+font-size: 28px;
+width: 280px;
+cursor: pointer;
+text-decoration: none;
+}
+#add_actor_btn:hover {
+  background: gray;
+  opacity: 1;
+}
