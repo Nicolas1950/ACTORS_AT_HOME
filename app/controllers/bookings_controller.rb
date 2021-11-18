@@ -11,7 +11,7 @@ class BookingsController < ApplicationController
     @actor = Actor.find(params[:actor_id])
     @booking.actor = @actor
     @booking.save
-    redirect_to actors_path
+    redirect_to actor_path(@actor)
     authorize @booking
   end
 
