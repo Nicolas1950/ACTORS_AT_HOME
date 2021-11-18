@@ -2,10 +2,18 @@ class ActorsController < ApplicationController
   before_action :find, only:[:show, :edit, :update, :destroy]
   def index
     @actors = policy_scope(Actor)
+    if params[:query].present?
+      sql_query = "name ILIKE :query OR field ILIKE :query"
+      @actors = Actor.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @actors = Actor.all
+    end
+
     @markers = @actors.geocoded.map do |actor|
       {
         lat: actor.latitude,
-        lng: actor.longitude
+        lng: actor.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { actor: actor })
       }
     end
   end
