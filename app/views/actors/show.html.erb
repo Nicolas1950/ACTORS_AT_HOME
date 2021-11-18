@@ -1,8 +1,10 @@
-<%= @actor.name %>
-<%= @actor.price %>
-<%= @actor.field %>
-<%= @actor.description %>
-<%= @actor.address %>
+
+<li> <%= "His name is " %><%= @actor.name %></li>
+<li><%= "A day with " %><%= @actor.name %><%= " will cost " %><%= @actor.price %><%= "$ a day." %></li>
+<li><%= "The speciality is " %><%= @actor.field %></li>
+<li><%= "Description of the actor: " %><%= @actor.description %></li>
+<li><%= @actor.address %></li>
+
 <% if @actor.photo.attached? %>
   <%= cl_image_tag @actor.photo.key %>
 <% end %>
@@ -13,5 +15,7 @@
 <%= link_to 'Book the Actor', new_actor_booking_path(@actor), class: "btn btn-primary" %>
 <h2>Bookings of the actor</h2>
 <% if @actor.bookings %>
-  <%= @actor.bookings %>
+  <% @actor.bookings.each do |booking| %>
+  <li> <%= "Nous vous confirmons la réservation de " %><%= booking.actor.name %> <%= "du " %> <%= booking.start_date %> <%= "au" %> <%= booking.end_date %> <%= "profitez-en bien !" %> </li>
+  <% end %>
 <% end %>
