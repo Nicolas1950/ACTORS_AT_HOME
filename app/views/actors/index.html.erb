@@ -5,7 +5,7 @@
     <% end %>
     <% @actors.each do |actor| %>
       <div class="big_card">
-        <%=cl_image_tag actor.photo.key, class: "img_actors_img" %>
+        <%=cl_image_tag actor.photo.key, class: "img_actors_img" if actor.photo.attached?%>
         <div class="info_card_actor">
           <div class="only_info">
             <strong ><%= actor.name %></strong>

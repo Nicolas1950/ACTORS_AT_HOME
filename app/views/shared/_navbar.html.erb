@@ -1,33 +1,28 @@
 <div class="navbar force navbar-expand-sm navbar-light navbar-lewagon">
-  <a class="navbar-brand" href="/">
+  <a class="navbar-brand d-flex" href="/">
     <img src="https://cdn-icons-png.flaticon.com/512/1733/1733692.png" />
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
+  <h3 class='text-left'>Actors at Home</h3>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <%# <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-          <div class="search-form-control form-group">
-            <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-            <button name="button" type="submit" class="btn btn-flat">
-              <i class="fas fa-search"></i> Search
-            </button>
-          </div>
-        </form> %>
-    <%= form_tag actors_path, method: :get do %>
-      <%= text_field_tag :query, params[:query],
+    <ul class="navbar-nav mr-auto">
+      <%= form_tag actors_path, method: :get do %>
+        <%= text_field_tag :query, params[:query],
             class: "search-form-control",
             placeholder: "Find a actor"
           %>
-      <%= submit_tag "Search" %>
-    <% end %>
-    <li class="nav-item dropdown">
-      <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://jooinn.com/images/empty-face-1.jpg" />
-      <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="#">Sign up</a>
-        <a class="dropdown-item" href="#">Log in</a>
-        <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i></a>
-      </div>
-    </li>
-  </ul>
+        <%= submit_tag "Search" %>
+      <% end %>
+      <li class="nav-item dropdown">
+        <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://jooinn.com/images/empty-face-1.jpg" />
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Sign up</a>
+          <a class="dropdown-item" href="#">Log in</a>
+          <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i></a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>
