@@ -38,6 +38,6 @@ end
 
   private
 
-  def booking_params
-    params.require(:booking).permit(:reviews, :actor_id)
+  def review_params
+    params.require(:review).permit(:, :actor_id)
   end
