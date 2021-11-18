@@ -7,9 +7,9 @@
   <%= cl_image_tag @actor.photo.key %>
 <% end %>
 <% if policy(@actor).edit? %>
-  <%= link_to 'Edit infos', edit_actor_path, class: 'btn btn-secondary' %>
+  <%= link_to 'Edit infos', edit_actor_path, class: '' %>
 <% end %>
-<%= link_to 'Book the Actor', new_actor_booking_path(@actor), class: "btn btn-primary" %>
+<%= link_to 'Book the Actor', new_actor_booking_path(@actor), class: "" %>
 <h2>Bookings of the actor</h2>
 <% if @actor.bookings %>
   <%= @actor.bookings %>

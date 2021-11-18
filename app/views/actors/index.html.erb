@@ -1,76 +1,26 @@
-<div class="p-3 mb-2 bg-info ">
-  <div class="navbar force navbar-expand-sm navbar-light navbar-lewagon">
-    <a class="navbar-brand d-flex" href="#">
-      <img src="https://cdn-icons-png.flaticon.com/512/1733/1733692.png" />
-    </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <%# <li class="nav-item active">
-        <a class="nav-link" href="#">Home</a>
-      </li> %>
-        <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-          <div class="search-form-control form-group">
-            <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-            <button name="button" type="submit" class="btn btn-flat">
-              <i class="fas fa-search"></i> Search
-            </button>
-          </div>
-        </form>
-        <li class="nav-item dropdown">
-          <img class="avatar dropdown-toggle" id="navbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://jooinn.com/images/empty-face-1.jpg" />
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Sign up</a>
-            <a class="dropdown-item" href="#">Log in</a>
-            <a class="dropdown-item" href="#"><i class="fas fa-cogs"></i></a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <% if notice %>
-    <div class="alert alert-info alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <%= notice %>
-    </div>
-  <% end %>
-  <% if alert %>
-    <div class="alert alert-warning alert-dismissible" role="alert">
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-      <%= alert %>
-    </div>
-  <% end %>
-  <div class="p-3 mb-2 bg-info">
-    <h1 class="text-center">ACTORS AT HOME</h1>
-    <div id="map"
-      style="width: 100%; height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-    </div>
+<div class="index_container">
+  <div class="actor_container">
     <% @actors.each do |actor| %>
-      <div class="card m-4" style="width: 18rem;">
-        <% if actor.photo.attached? %>
-          <div class="card-body" style="background-image: url('<%= cl_image_path actor.photo.key, height: 300, crop: :fill %>'); background-size: cover">
-          <% else %>
-            <div class="card-body" style="background-image: url('https://image.shutterstock.com/image-vector/male-silhouette-profile-picture-question-260nw-151266383.jpg'); background-size: cover">
-            <% end %>
-            <h5 class="card-title text-bold"><%= actor.name %></h5>
+      <div class="big_card">
+        <%=cl_image_tag actor.photo.key, class: "img_actors_img" %>
+        <div class="info_card_actor">
+          <div class="only_info">
+            <h5 ><%= actor.name %></h5>
             <p class="card-text"><%= actor.price %></p>
             <p class="card-text"><%= actor.field %></p>
             <p class="card-text"><%= actor.description %></p>
-            <%= link_to "Show actor's informations", actor_path(actor), class: 'btn btn-primary' %>
           </div>
+          <%= link_to "Infos", actor_path(actor),id:"buton_index"%>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>
-  <% if policy(Actor).create? %>
-<<<<<<< HEAD
-    <p class='text-center'><%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %></p
+  <div id="map"
+      style="width: 500px; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
+</div>
+<% if policy(Actor).create? %>
+  <p class='text-left'><%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %></p
       <% end %>
-=======
-    <%= link_to 'Add a new actor', new_actor_path, class: 'btn btn-primary' %>
-  <% end %>
->>>>>>> a6441823a393ea3235d4459ee00308fae582e148
