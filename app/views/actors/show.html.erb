@@ -1,16 +1,40 @@
-<%= @actor.name %>
-<%= @actor.price %>
-<%= @actor.field %>
-<%= @actor.description %>
-<%= @actor.address %>
-<% if @actor.photo.attached? %>
-  <%= cl_image_tag @actor.photo.key %>
-<% end %>
+<div class="container">
+  <li> <%= "His name is " %><%= @actor.name %></li>
+  <li><%= "A day with " %><%= @actor.name %><%= " will cost " %><%= @actor.price %><%= "$ a day." %></li>
+  <li><%= "The speciality is " %><%= @actor.field %></li>
+  <li><%= "Description of the actor: " %><%= @actor.description %></li>
+  <li><%= @actor.address %></li>
+</div>
+<div> <% if @actor.photo.attached? %>
+    <%= cl_image_tag @actor.photo.key %>
+  <% end %>
+</div>
 <% if policy(@actor).edit? %>
-  <%= link_to 'Edit infos', edit_actor_path, class: '' %>
+  <%= link_to 'Edit infos', edit_actor_path, class: 'btn btn-secondary' %>
+  <%# <%= link_to 'Book the actor', new_actor_booking_path, class: 'btn btn-secondary'  %>
 <% end %>
-<%= link_to 'Book the Actor', new_actor_booking_path(@actor), class: "" %>
-<h2>Bookings of the actor</h2>
-<% if @actor.bookings %>
-  <%= @actor.bookings %>
-<% end %>
+<%# <%= link_to 'Book the Actor', new_actor_booking_path(@actor), class: "btn btn-primary" %>
+<div>
+  <h2>Bookings of the actor</h2>
+  <% if @actor.bookings %>
+    <% @actor.bookings.each do |booking| %>
+      <li> <%= "Nous vous confirmons la réservation de " %><%= booking.actor.name.capitalize %> <%= "du " %> <%= booking.start_date %> <%= "au" %> <%= booking.end_date %> <%= "profitez-en bien !" %> </li>
+    <% end %>
+  <% end %>
+</div>
+<div class="container py-5" >
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+          <h2>When do you want to rent your actor ?</h2>
+          <%= simple_form_for [@actor, @booking] do |f| %>
+            <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
+            <%= f.button :submit, "Confirm my dates", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
