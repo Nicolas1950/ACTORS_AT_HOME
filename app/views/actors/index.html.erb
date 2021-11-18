@@ -9,13 +9,14 @@
         <div class="info_card_actor">
           <div class="only_info">
             <strong ><%= actor.name %></strong>
-            <p class="card-text"><%= actor.price %></p>
+            <p id="card_price"><%= actor.price %> $</p>
             <p class="card-text"><%= actor.field %></p>
             <p class="card-text"><%= actor.description %></p>
           </div>
           <%= link_to "Infos", actor_path(actor),id:"buton_index"%>
         </div>
       </div>
+      <hr>
     <% end %>
   </div>
   <div id="map"
