@@ -1,26 +1,28 @@
-<div class="index_container">
-  <div class="actor_container">
-    <% if policy(Actor).create? %>
-      <p class='text-left'><%= link_to 'Add a new actor', new_actor_path, id:"add_actor_btn"%></p>
-    <% end %>
-    <% @actors.each do |actor| %>
-      <div class="big_card">
-        <%=cl_image_tag actor.photo.key, class: "img_actors_img" if actor.photo.attached?%>
-        <div class="info_card_actor">
-          <div class="only_info">
-            <strong ><%= actor.name %></strong>
-            <p class="card-text"><%= actor.price %></p>
-            <p class="card-text"><%= actor.field %></p>
-            <p class="card-text"><%= actor.description %></p>
+ <div class="div_centering">
+  <div class="index_container">
+    <div class="actor_container">
+      <% if policy(Actor).create? %>
+        <p class='text-left'><%= link_to 'Add a new actor', new_actor_path, id:"add_actor_btn"%></p>
+      <% end %>
+      <% @actors.each do |actor| %>
+        <div class="big_card">
+          <%=cl_image_tag actor.photo.key, class: "img_actors_img" if actor.photo.attached?%>
+          <div class="info_card_actor">
+            <div class="only_info">
+              <strong ><%= actor.name %></strong>
+              <p class="card-text"><%= actor.price %></p>
+              <p class="card-text"><%= actor.field %></p>
+              <p class="card-text"><%= actor.description %></p>
+            </div>
+            <%= link_to "Infos", actor_path(actor),id:"buton_index"%>
           </div>
-          <%= link_to "Infos", actor_path(actor),id:"buton_index"%>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <div id="map"
-      style="width: 500px; height: 600px;"
-      data-markers="<%= @markers.to_json %>"
-      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      <% end %>
+    </div>
+    <div id="map"
+        style="width: 500px; height: 600px;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   </div>
 </div>
