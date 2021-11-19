@@ -3,19 +3,18 @@
 
   <% @bookings_current_user.each do |booking| %>
 
-    <div>
+    <div class="card-product">
 
     <% if booking.actor.photo.attached? %>
       <%= cl_image_tag booking.actor.photo.key, height: 300, width: 400, crop: :fill %>
     <% else %>
-     <%= "No picture attached guys!!!!!!" %>
+     <img src="https://images.pexels.com/photos/3747139/pexels-photo-3747139.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
     <% end %>
 
-    <ul>
-    <li><%= booking.actor.name %></li>
-    <li><%= booking.start_date %>-<%= booking.end_date %></li>
-    </ul>
-
+      <div class="card-product-infos">
+        <h2>Ordered_Guy: <%= booking.actor.name %></h2>
+        <p><%= booking.start_date %>-<%= booking.end_date %></p>
+      </div>
     </div>
 
   <% end %>
