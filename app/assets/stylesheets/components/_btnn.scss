@@ -34,3 +34,42 @@ text-decoration: none;
   background: gray;
   opacity: 1;
 }
+
+#btn-home {
+  position: relative;
+  background-color: $pastelgreen;
+  border: none;
+  font-size: 15px;
+  border-radius: 10px;
+  color: #FFFFFF;
+  padding: 15px;
+  width: 70px;
+  text-align: center;
+  transition-duration: 0.4s;
+  text-decoration: none;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#btn-home:after {
+  content: "";
+  background: #f1f1f1;
+  display: block;
+  position: absolute;
+  padding-top: 300%;
+  padding-left: 350%;
+  margin-left: -20px !important;
+  margin-top: -120%;
+  opacity: 0;
+  transition: all 0.8s
+}
+
+#btn-home:active:after {
+  padding: 0;
+  margin: 0;
+  opacity: 1;
+  transition: 0s
+}
+// $pastelgreen:#BBD8B3;
+// $canardyellow: #F3B61F;
+// $cacigreen: #A29F15;
