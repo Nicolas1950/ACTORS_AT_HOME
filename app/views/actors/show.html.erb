@@ -38,4 +38,13 @@
     </div>
   </div>
 </div>
-<%= @review %>
+<div id="reviews">
+  <% @bookings.each do |booking| %>
+    <% if booking.review.blank? %>
+      Be the first to leave a review for <%= @actor.name %>
+    <% else %>
+      <p><%= booking.review %></p>
+    <% end %>
+  <% end %>
+</div>
+<%= link_to 'See all the actors', actors_path, class: 'btn btn-primary' %>
