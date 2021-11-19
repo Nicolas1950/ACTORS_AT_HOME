@@ -25,6 +25,7 @@ class ActorsController < ApplicationController
 
   def show
     @booking = Booking.new
+    @bookings = @actor.bookings
   end
 
   def create
@@ -60,6 +61,6 @@ class ActorsController < ApplicationController
   end
 
   def actor_params
-    params.require(:actor).permit(:name, :price, :field, :description, :photo)
+    params.require(:actor).permit(:name, :price, :field, :description, :photo, :address)
   end
 end

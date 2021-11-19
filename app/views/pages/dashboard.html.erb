@@ -1,25 +1,19 @@
-
 <div class="div_centering">
-
-<h1>Your bookings</h1>
-
+  <h1>Your bookings</h1>
   <% @bookings_current_user.each do |booking| %>
-
     <div class="card-product">
-
-    <% if booking.actor.photo.attached? %>
-      <%= cl_image_tag booking.actor.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-     <img src="https://images.pexels.com/photos/3747139/pexels-photo-3747139.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
-    <% end %>
-
+      <% if booking.actor.photo.attached? %>
+        <%= cl_image_tag booking.actor.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <img src="https://images.pexels.com/photos/3747139/pexels-photo-3747139.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
+      <% end %>
       <div class="card-product-infos">
         <h2>Ordered_Guy: <%= booking.actor.name %></h2>
         <p><%= booking.start_date %>-<%= booking.end_date %></p>
       </div>
-
+      <div class="button-review">
+        <%= link_to 'New review', new_booking_review_path(booking), class: 'btn-addactor' %>
+      </div>
     </div>
-
   <% end %>
-
-  </div>
+</div>
