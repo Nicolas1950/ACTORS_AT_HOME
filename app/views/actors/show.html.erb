@@ -1,36 +1,43 @@
-<div class="container">
-  <li> <%= "His name is " %><%= @actor.name %></li>
-  <li><%= "A day with " %><%= @actor.name %><%= " will cost " %><%= @actor.price %><%= "$ a day." %></li>
-  <li><%= "The speciality is " %><%= @actor.field %></li>
-  <li><%= "Description of the actor: " %><%= @actor.description %></li>
-  <li><%= @actor.address %></li>
-</div>
-<div> <% if @actor.photo.attached? %>
-    <%= cl_image_tag @actor.photo.key %>
-  <% end %>
-</div>
-<% if policy(@actor).edit? %>
-  <%= link_to 'Edit infos', edit_actor_path, class: 'btn btn-secondary' %>
-  <%# <%= link_to 'Book the actor', new_actor_booking_path, class: 'btn btn-secondary'  %>
-<% end %>
-<%# <%= link_to 'Book the Actor', new_actor_booking_path(@actor), class: "btn btn-primary" %>
-<div>
-  <h2>Bookings of the actor</h2>
-  <% if @actor.bookings %>
-    <% @actor.bookings.each do |booking| %>
-      <li> <%= "Nous vous confirmons la réservation de " %><%= booking.actor.name.capitalize %> <%= "du " %> <%= booking.start_date %> <%= "au" %> <%= booking.end_date %> <%= "profitez-en bien !" %> </li>
-    <% end %>
-  <% end %>
-</div>
-<h2>Reviews of the actor</h2>
-<div id="reviews">
-  <% @bookings.each do |booking| %>
-    <% if booking.review.blank? %>
-      Be the first to leave a review for <%= @actor.name %>
-    <% else %>
-      <p><%= booking.review.comment %> <%= booking.review.rating %></p>
-    <% end %>
-  <% end %>
+<p class='text-right'><%= link_to 'See all the actors', actors_path, class: 'btn btn-addactor' %></p>
+<div class='container d-flex justify-content-center'>
+  <div class='container d-flex justify-content-center align-middle'>
+    <div class='container d-flex justify-content-center m-5'>
+      <div>
+        <% if @actor.photo.attached? %>
+          <%= cl_image_tag @actor.photo.key %>
+        <% end %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= @actor.name %></h5>
+        <p class="card-text"><%= @actor.field %></p>
+        <p class="card-text"><%= @actor.description %></p>
+        <p class="card-text"><%= @actor.address %></p>
+        <% if policy(@actor).edit? %>
+          <%= link_to 'Edit infos', edit_actor_path, class: 'btn btn-addactor' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div class="reviews m-5">
+      <h2>Reviews of the actor</h2>
+      <% @bookings.each do |booking| %>
+        <% if booking.review.blank? %>
+          Be the first to leave a review for <%= @actor.name %>
+        <% else %>
+          <p><%= booking.review.comment %> <%= booking.review.rating %></p>
+        <% end %>
+      <% end %>
+    </div>
+    <div class='container3 m-5'>
+      <h2>Bookings of the actor</h2>
+      <% if @actor.bookings %>
+        <% @actor.bookings.each do |booking| %>
+          <li> <%= "Nous vous confirmons la réservation de " %><%= booking.actor.name.capitalize %> <%= "du " %> <%= booking.start_date %> <%= "au" %> <%= booking.end_date %> <%= "profitez-en bien !" %> </li>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
 <div class="container py-5" >
   <div class="row">
@@ -48,4 +55,3 @@
     </div>
   </div>
 </div>
-<%= link_to 'See all the actors', actors_path, class: 'btn btn-primary' %>
