@@ -10,5 +10,4 @@ class PagesController < ApplicationController
     @bookings_current_user = Booking.where(user: @user)
 
   end
-
 end
