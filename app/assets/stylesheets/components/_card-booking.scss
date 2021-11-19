@@ -5,6 +5,8 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 4px;
+  margin-bottom: 16px;
 }
 
 .card-product img {
@@ -36,4 +38,13 @@
 .card-product-no-pic {
 width: 120px;
 
+}
+
+.div_centering {
+ margin: 16px 80px;
+ h1 {
+   color:salmon;
+   text-align: center;
+   padding: 8px 0;
+ }
 }
