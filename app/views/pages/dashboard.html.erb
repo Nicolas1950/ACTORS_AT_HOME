@@ -1,5 +1,7 @@
 
+<div class="div_centering">
 
+<h1>Your bookings</h1>
 
   <% @bookings_current_user.each do |booking| %>
 
@@ -15,6 +17,9 @@
         <h2>Ordered_Guy: <%= booking.actor.name %></h2>
         <p><%= booking.start_date %>-<%= booking.end_date %></p>
       </div>
+
     </div>
 
   <% end %>
+
+  </div>
