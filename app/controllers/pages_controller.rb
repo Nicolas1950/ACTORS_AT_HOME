@@ -1,6 +1,6 @@
+
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: :home
-
 
   def home
   end
@@ -8,6 +8,5 @@ class PagesController < ApplicationController
   def dashboard
     @user = current_user
     @bookings_current_user = Booking.where(user: @user)
-
   end
 end
