@@ -3,22 +3,26 @@ class ReviewsController < ApplicationController
   end
 
   def new
+    @booking = Booking.find(params[:booking_id])
     @review = Review.new
+    authorize @review
   end
 
   def create
     @review = Review.new(review_params)
-    @actor = Actor.find(params[:actor_id])
     @user = current_user
-    @booking = Booking.where(actor: @actor, user: @user)
+    @booking = Booking.find(params[:booking_id])
+    @actor = @booking.actor
     @review.booking = @booking
     @review.save
     redirect_to actor_path(@actor)
+    authorize @review
   end
 
   def destroy
     @review = Review.find(params[:id])
     @review.destroy
+    authorize @review
   end
 
   private
