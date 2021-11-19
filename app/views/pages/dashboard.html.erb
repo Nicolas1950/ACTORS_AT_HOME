@@ -7,10 +7,12 @@
       <% else %>
         <img src="https://images.pexels.com/photos/3747139/pexels-photo-3747139.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260">
       <% end %>
-      <%= link_to 'New review', new_booking_review_path(booking), class: 'btn btn-primary' %>
       <div class="card-product-infos">
         <h2>Ordered_Guy: <%= booking.actor.name %></h2>
         <p><%= booking.start_date %>-<%= booking.end_date %></p>
+      </div>
+      <div class="button-review">
+        <%= link_to 'New review', new_booking_review_path(booking), class: 'btn-addactor' %>
       </div>
     </div>
   <% end %>

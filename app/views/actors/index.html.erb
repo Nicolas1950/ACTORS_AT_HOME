@@ -1,7 +1,7 @@
 <div class="index_container">
   <div class="actor_container">
     <% if policy(Actor).create? %>
-      <p class='text-left'><%= link_to 'Add a new actor', new_actor_path, class:"add_actor_btn"%></p>
+      <p class='text-right p-3'><%= link_to 'Add a new actor', new_actor_path, class:"add_actor_btn p-3"%></p>
     <% end %>
     <% @actors.each do |actor| %>
       <div class="big_card">
