@@ -1,2 +1,16 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="container py-5" >
+  <div class="row">
+    <div class="col-12 col-md-6 offset-lg-3">
+      <div class="bg-white rounded p-3 shadow">
+        <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+          <h2>Add a review</h2>
+          <%= simple_form_for [@booking, @review] do |f| %>
+            <%= f.input :comment %>
+            <%= f.input :rating %>
+            <%= f.button :submit, "Submit", class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

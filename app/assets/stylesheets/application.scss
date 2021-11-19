@@ -23,7 +23,11 @@
 // app/assets/stylesheets/application.scss
 // [...]
 @import "flatpickr/dist/themes/airbnb";
+
+body {
+  background-color: $beautifulnoir;
+}
+
 a {
   text-decoration: none;
-
 }
